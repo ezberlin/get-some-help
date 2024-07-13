@@ -1,10 +1,11 @@
 const redirectMap = {
-  "youtube.com": "https://www.youtube.com/watch?v=l60MnDJklnM
+  "https://www.youtube.com/": "https://www.youtube.com/watch?v=l60MnDJklnM"
 };
 
 function redirect(requestDetails) {
   for (let domain in redirectMap) {
-    if (requestDetails.url.includes(domain)) {
+    if (requestDetails.url === domain) {
+      console.log("detected")
       return {
         redirectUrl: redirectMap[domain]
       };
